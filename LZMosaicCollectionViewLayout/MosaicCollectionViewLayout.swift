@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MosaicCollectionViewLayoutDelegate {
+public protocol MosaicCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, sizeForViewAtIndexPath: IndexPath) -> CGSize
     
     func useCustomWidthForEachColumn(in collectionView: UICollectionView) -> Bool
@@ -22,7 +22,7 @@ protocol MosaicCollectionViewLayoutDelegate {
     func columnMargin(in collectionView: UICollectionView) -> CGFloat
  }
 
-class MosaicCollectionViewLayout: UICollectionViewLayout {
+public class MosaicCollectionViewLayout: UICollectionViewLayout {
     struct MosaicLayoutColumnItem {
         let index: Int
         var leading = 0.0
@@ -48,9 +48,9 @@ class MosaicCollectionViewLayout: UICollectionViewLayout {
     var columnItems = [MosaicLayoutColumnItem]()
     var attributedLayoutItemCaches = [IndexPath : UICollectionViewLayoutAttributes]()
     
-    var delegate: MosaicCollectionViewLayoutDelegate?
+    public var delegate: MosaicCollectionViewLayoutDelegate?
     
-    override func prepare() {
+    override public func prepare() {
         super.prepare()
         
         invalidateLayout()
@@ -58,24 +58,24 @@ class MosaicCollectionViewLayout: UICollectionViewLayout {
         createLayoutAttributes()
     }
     
-    override func invalidateLayout() {
+    override public func invalidateLayout() {
         super.invalidateLayout()
         
         columnItems.removeAll()
         attributedLayoutItemCaches.removeAll()
     }
     
-    override var collectionViewContentSize: CGSize {
+    override public var collectionViewContentSize: CGSize {
         get {
             return CGSize(width: columnItems.reduce(0.0) { $0 + $1.width }, height: columnItems[findTallestColumnIndex()].height)
         }
     }
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return attributedLayoutItemCaches.values.filter { rect.intersects($0.frame) }
     }
     
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return attributedLayoutItemCaches[indexPath]
     }
 }
