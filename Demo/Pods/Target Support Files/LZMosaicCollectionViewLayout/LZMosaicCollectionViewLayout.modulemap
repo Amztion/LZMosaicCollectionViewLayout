@@ -1,0 +1,6 @@
+framework module LZMosaicCollectionViewLayout {
+  umbrella header "LZMosaicCollectionViewLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

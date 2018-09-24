@@ -1,0 +1,16 @@
+PODS:
+  - LZMosaicCollectionViewLayout (0.0.1)
+
+DEPENDENCIES:
+  - LZMosaicCollectionViewLayout (from `../LZMosaicCollectionViewLayout.podspec`)
+
+EXTERNAL SOURCES:
+  LZMosaicCollectionViewLayout:
+    :path: "../LZMosaicCollectionViewLayout.podspec"
+
+SPEC CHECKSUMS:
+  LZMosaicCollectionViewLayout: 1d8567607bc1165f777a22a1fac00cdb3ae491d9
+
+PODFILE CHECKSUM: 897fd298ffecc808459face80c836fa4357a02c4
+
+COCOAPODS: 1.5.3
